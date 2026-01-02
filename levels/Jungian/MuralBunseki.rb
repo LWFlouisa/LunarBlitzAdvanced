@@ -1,3 +1,5 @@
+require "NeoPathfinding"
+
 # Analyze painting or mural
 def muralebunseki(a, b)
   "Vous avoir analyse #{a} en repos en #{b}."
