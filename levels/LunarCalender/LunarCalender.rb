@@ -38,65 +38,6 @@ module BequestCalender
       $zombies           = 0 # How many zombies you bludgeons or strangled.
     end
 
-    def self.enemy_name
-      # ~~~
-      # 10 => 20 => 30 New Moon
-      #  9 => 18 => 27 Waxing Crescent
-      #  7 => 14 => 21 First Quarter
-      #  6 => 12 => 18 Waxing Gibbous
-      #  4 =>  8 => 12 Full Moon
-      #  6 => 12 => 18 Waning Gibbous
-      #  7 => 14 => 21 Last Quarter
-      #  8 => 16 => 24 Waning Crescent
-      # ~~
-
-      # Lunar Phases In French
-      nl  =       "nouvelle lune"; clc = "croissant A La cire"; 
-      pt  =   "premier trimestre";     cdg = "cire de Gibbous";
-      pl  =         "Pleine Lune"; eg  =   "evetement gibbous";
-      dt  =   "dernier trimestre"; af  =             "aurfeur";
-
-      # Fauna Names In Nihongo
-      attc =   "Anos Tsuchi Tesutosujettos de les corrompue"
-      aduc =        "Anos Denki Ursinehomme de le carbonise"
-      asur =            "Ana Shi Ursinehomme de le recupere"
-      atun =            "Ana Tsuchi Ursinehomme de la noyee"
-      aeun =                "Anos Ea Ursinehomme de le noye"
-      adts =       "Anos Denki Tesutosujettos de le souffle"
-      attn =         "Ana Tsuchi Tesutosujettos de la noyee"
-      athn =      "Anos Tenchi Homard Au Cochon de la noyee"
-      adtc =    "Anos Denki Tesutosujettos de les corrompue"
-      adua =       "Anos Danki Usinehomme de les abandonnes"
-      atuc =      "Anos Tenchi Ursinehomme de les corrompue"
-      adha = "Anos Denki Homard Au Cochon de les abandonnes"
-
-      lunar_fauna = [
-        [[attc, attc], [attc, aduc], [attc, asur], [attc, atun], [attc, aeun], [attc, adts], [attc, attn], [attc, athn], [attc, adtc], [attc, adua], [attc, atuc], [attc, adha]],
-        [[aduc, attc], [aduc, aduc], [aduc, asur], [aduc, atun], [aduc, aeun], [aduc, adts], [aduc, attn], [aduc, athn], [aduc, adtc], [aduc, adua], [aduc, atuc], [aduc, adha]],
-        [[asur, attc], [asur, aduc], [asur, asur], [asur, atun], [asur, aeun], [asur, adts], [asur, attn], [asur, athn], [asur, adtc], [asur, adua], [asur, atuc], [asur, adha]],
-        [[atun, attc], [atun, aduc], [atun, asur], [atun, atun], [atun, aeun], [atun, adts], [atun, attn], [atun, athn], [atun, adtc], [atun, adua], [atun, atuc], [atun, adha]],
-        [[aeun, attc], [aeun, aduc], [aeun, asur], [aeun, atun], [aeun, aeun], [aeun, adts], [aeun, attn], [aeun, athn], [aeun, adtc], [aeun, adua], [aeun, atuc], [aeun, adha]],
-        [[adts, attc], [adts, aduc], [adts, asur], [adts, atun], [adts, aeun], [adts, adts], [adts, attn], [adts, athn], [adts, adtc], [adts, adua], [adts, atuc], [adts, adha]],
-        [[attn, attc], [attn, aduc], [attn, asur], [attn, atun], [attn, aeun], [attn, adts], [attn, attn], [attn, athn], [attn, adtc], [attn, adua], [attn, atuc], [attn, adha]],
-        [[athn, attc], [athn, aduc], [athn, asur], [athn, atun], [athn, aeun], [athn, adts], [athn, attn], [athn, athn], [athn, adtc], [athn, adua], [athn, atuc], [athn, adha]],
-        [[adtc, attc], [adtc, aduc], [adtc, asur], [adtc, atun], [adtc, aeun], [adtc, adts], [adtc, attn], [adtc, athn], [adtc, adtc], [adtc, adua], [adtc, atuc], [adtc, adha]],
-        [[adua, attc], [adua, aduc], [adua, asur], [adua, atun], [adua, aeun], [adua, adts], [adua, attn], [adua, athn], [adua, adtc], [adua, adua], [adua, atuc], [adua, adha]],
-        [[atuc, attc], [atuc, aduc], [atuc, asur], [atuc, atun], [atuc, aeun], [atuc, adts], [atuc, attn], [atuc, athn], [atuc, adtc], [atuc, adua], [atuc, atuc], [atuc, adha]],
-        [[adha, attc], [adha, aduc], [adha, asur], [adha, atun], [adha, aeun], [adha, adts], [adha, attn], [adha, athn], [adha, adtc], [adha, adua], [adha, atuc], [adha, adha]],
-      ]
-
-      # Fauna Type
-      row_options = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-      col_options = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-      arr_options = [0, 1]
-
-      cur_row = row_options.sample
-      cur_col = col_options.sample
-      cur_arr = arr_options.sample
-
-      $fauna_type = lunar_fauna[cur_row][cur_col][cur_arr]
-    end
-
     def self.new_moon
       $player_sanity = 10 * $player_level
       $player_hp     = 10 * $player_level
