@@ -17,12 +17,14 @@ loop do
   # Checks if you have healer cactus or gunmetal boots. And if out of gunmetal boots  #
   # then allows you to make more gunmetal boots.                                      #
   #####################################################################################
+  BequestCalender::LunarSeason.lunar_cycle
+  BequestCalender::LunarSeason.player_gui
+  
   $next_interval = $gunmetal_boots * 5
   
   puts "Gunmetal Boots: #{$gunmetal_boots} Healer Cactus: #{$healer_cactus}"
   puts "Alien Gunmetal: #{$alien_gunmetal} Cactus Passed: #{$cactus_passed}"
   puts "Cactus Placed: #{$trap_cactus_placed} Cactus Obtained: #{$trap_cactus_obtained}"
-  puts "Player HP: #{$player_hp}"
   
   if $cactus_passed > 250
     puts "You managed to find land not covered in poisonous cactus. And found a team of survivors whom also archived JPop albums."
