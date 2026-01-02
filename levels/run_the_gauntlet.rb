@@ -1,3 +1,5 @@
+require_relative "LunarCalender/LunarCalender.rb"
+
 $player_hp      = 10
 $healer_cactus  = 10
 $gunmetal_boots = 10
