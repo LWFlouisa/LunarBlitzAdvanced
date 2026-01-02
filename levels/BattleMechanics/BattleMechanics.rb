@@ -1,5 +1,5 @@
   # If the previous enemy encountered matches one you've dueled before, it quips about not continuing to run into them.
-  def self.familiarity
+  def familiarity
     previous_enemy = File.read("lib/previous/enemy.txt")
 
     name_list  = File.readlines("lib/rendered/enemies.txt")
@@ -21,7 +21,7 @@
     end
   end
 
-  def self.lure_enemy
+  def lure_enemy
     #        true  false
     # true   t,t   t,f
     # false  f,t   f,f
@@ -59,7 +59,7 @@
     end 
   end
 
-  def self.stun_enemy
+  def stun_enemy
     #        true  false
     # true   t,t   t,f
     # false  f,t   f,f
@@ -86,7 +86,7 @@
     end 
   end
 
-  def self.trap_enemy
+  def trap_enemy
     #        true  false
     # true   t,t   t,f
     # false  f,t   f,f
@@ -112,5 +112,52 @@
       puts "managed to be trapped while you lured it in your direction."
 
       sleep(1.5)
-    end 
-    end
+end 
+  
+# Input sound quality, scent, and movement patterns in OSV order.
+def analyze_luring(a, b, c)
+  puts "LURING"
+  
+  2.times do
+    get_statistics(:sound,    a,
+                   :scent,    b,
+                   :movement, c)
+                 
+                   dynamic_reward_allocation
+                   dynamic_reward_allocation
+
+                   #sum_of_probabilities
+  end
+end
+
+# Input kinetic motion, electrical charge, and chemical properties in OSV order.
+def analyze_stunning(a, b, c)
+  puts "STUNNING"
+  
+  2.times do
+    get_statistics(:kinetic_motion,      a,
+                   :electrical_charge,   b,
+                   :chemical_properties, c)
+                 
+                   dynamic_reward_allocation
+                   dynamic_reward_allocation
+
+                   #sum_of_probabilities
+  end
+end
+
+# Input line of sight, pressure points, and noise locations in OSV order.
+def analyze_trapping(a, b, c)
+  puts "TRAPPING"
+  
+  2.times do
+    get_statistics(:line_of_sight,   a,
+                   :pressure_points, b,
+                   :noise_location,  c)
+                 
+                   dynamic_reward_allocation
+                   dynamic_reward_allocation
+
+                   #sum_of_probabilities
+  end
+end
