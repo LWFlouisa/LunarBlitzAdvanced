@@ -1,3 +1,5 @@
+require_relative "LunarCalender/LunarCalender.rb"
+
 #puts "\e[38;10;25;38;33m begin' \e[0m"
 
 # Sparks Of Contamination
@@ -177,6 +179,9 @@ loop do
       "scoop"    => "bludgeon",
     }
 
+    BequestCalender::LunarSeason.lunar_cycle
+    BequestCalender::LunarSeason.player_gui
+    
     puts "Days Left: #{$day_counter}"
 
     puts "Zombie: #{$current_monster_name}"
