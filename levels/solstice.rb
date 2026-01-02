@@ -1,12 +1,13 @@
+require_relative "LunarCalender/LunarCalender.rb"
+
 # Corrupt   >> Recover
 # Recover   >> Abandoned
 # Abandoned >> Corrupt
 
-# If something is corrupted, it can be recovered. If recovered it can be abandoned. If Abandoned can be corrupted.
-
+# If something is corrupted, it can be recovered. If recovered it can be abandoned. If Abandoned can be corrupted. The exception is the MC.
 # Corrupted monsters are resistant to recovery. Recovered monsters are less likely to be abandoned. Abandoned monster are at increased risk of being corrupted, like aged software.
-
 # Recover can be beat corruption if you solve a puzzle. Unsolved puzzles risk being abandoned, and therefore at increased risk of corruption.
+
 def monster_name
   def five_elements
     possible_elements = File.readlines("lib/monsternames/elements.txt")
@@ -213,6 +214,9 @@ loop do
 
       system("ruby sparks_of_contamination.rb")
     end
+
+    BequestCalender::LunarSeason.lunar_cycle
+    BequestCalender::LunarSeason.player_gui
 
     puts "Monster: #{$current_monster_name}"
     puts "Nom De Plume: #{$name}"
