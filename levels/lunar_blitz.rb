@@ -1,3 +1,4 @@
+require_relative "LunarCalender/LunarCalender.rb"
 # You have seven day to archive all J-Pop albums.
 # Each day contains 24 hours.
 # Run out of days and remain behind as Mall leaves without arching its J-Pop albums. And earth is destroyed by an apocalyptic Volcano.
@@ -240,6 +241,9 @@ monster_name
 puts "The Generation ship and shopping mall needs your help to archive the remaining JPOP Albums of historical importance. Can you make it before the world destroying volcano erupts?"
 
 loop do
+  lunar_cycle
+  player_gui
+  
   $hours_left = $hours_left - 1
 
   if $days_left <= 0
