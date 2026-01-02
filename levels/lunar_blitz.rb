@@ -241,8 +241,8 @@ monster_name
 puts "The Generation ship and shopping mall needs your help to archive the remaining JPOP Albums of historical importance. Can you make it before the world destroying volcano erupts?"
 
 loop do
-  lunar_cycle
-  player_gui
+  BequestCalender::LunarSeason.lunar_cycle
+  BequestCalender::LunarSeason.player_gui
   
   $hours_left = $hours_left - 1
 
